@@ -1,0 +1,6 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<h2>{{ post.title }}</h2>
+<p>{{ post.content }}</p>
+<small>Posted by {{ post.author }} on {{ post.created_at }}</small>
+<a href="{% url 'main_page' %}">Back to main page</a>
