@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Posts</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Posts</h1>
-    <ul>
+    {% include 'base.html' %}
+    {% block content %}
+    <h2 class="page-title">Posts</h2>
+    <ul class="post-list">
         {% for post in posts %}
-            <li>
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.content }}</p>
+            <li class="post-item">
+                <a class="post-link" href="{% url 'post_detail' post.id %}">
+                    <h2 class="post-title">{{ post.title }}</h2>
+                </a>
+                <p class="post-content">{{ post.content }}</p>
                 <small>Posted by {{ post.author }} on {{ post.created_at }}</small>
             </li>
         {% empty %}
-            <p>No posts available.</p>
+            <p class="no-posts">No posts available.</p>
         {% endfor %}
     </ul>
+    {% endblock %}
 </body>
 </html>

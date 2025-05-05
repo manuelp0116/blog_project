@@ -1,14 +1,17 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
-<h2>Main Page</h2>
-<ul>
+{% include 'base.html' %}
+{% block content %}
+<h2 class="page-title">Main Page</h2>
+<ul class="post-list">
     {% for post in posts %}
-        <li>
-            <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+        <li class="post-item">
+            <a class="post-link" href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
             <small>by {{ post.author }} on {{ post.created_at }}</small>
         </li>
     {% empty %}
-        <p>No posts available.</p>
+        <p class="no-posts">No posts available.</p>
     {% endfor %}
 </ul>
-<a href="{% url 'create_post' %}">Create a new post</a>
+<a class="btn-primary" href="{% url 'create_post' %}">Create a new post</a>
+{% endblock %}

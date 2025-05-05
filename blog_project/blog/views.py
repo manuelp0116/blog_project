@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.http import HttpResponse
 from .models import Post
 from .forms import PostForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def register(request):
@@ -45,3 +46,32 @@ def create_post(request):
     else:
         form = PostForm()
     return render(request, 'test/create_post.html', {'form': form})
+
+@login_required
+def user_hub(request):
+    posts = Post.objects.filter(author=request.user).order_by('-created_at')
+    return render(request, 'test/user_hub.html', {'posts': posts})
+
+@login_required
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id, author=request.user)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('user_hub')
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'test/edit_post.html', {'form': form})
+
+@login_required
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id, author=request.user)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('user_hub')
+    return render(request, 'test/delete_post.html', {'post': post})
+
+def logout_screen(request):
+    logout(request)
+    return render(request, 'test/logout.html')

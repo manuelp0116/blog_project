@@ -1,5 +1,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% include 'base.html' %}
+{% block content %}
 <h2>Main Page</h2>
 <ul>
     {% for post in posts %}
@@ -12,3 +14,4 @@
     {% endfor %}
 </ul>
 <a href="{% url 'create_post' %}">Create a new post</a>
+{% endblock %}

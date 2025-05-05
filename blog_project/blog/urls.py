@@ -10,5 +10,9 @@ urlpatterns = [
     path('main_page/', views.main_page, name='main_page'),
     path('post/<int:post_id>/', views.post_detail, name='post_detail'),
     path('create_post/', views.create_post, name='create_post'),
+    path('user_hub/', views.user_hub, name='user_hub'),
+    path('edit_post/<int:post_id>/', views.edit_post, name='edit_post'),
+    path('delete_post/<int:post_id>/', views.delete_post, name='delete_post'),
+    path('logout_screen/', views.logout_screen, name='logout_screen'),
     path('', views.home, name='home')
 ]

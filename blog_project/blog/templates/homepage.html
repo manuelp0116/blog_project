@@ -1,8 +1,11 @@
-{%load static%}
+{% load static %}
 <link rel='stylesheet' href='{% static 'css/style.css' %}'>
+{% include 'base.html' %}
+{% block content %}
 <h2> WeLcome to "we need a name"</h2>
 <p>A place where ideas come to life.</p>
 <p>Explore our lates stories, and create your own, interact with users and more!</p>
 <p>Join us today and be part of our community.</p>
 <p>Already a member? <a href="{% url 'login' %}">Login here</a>.</p>
 <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+{% endblock %}

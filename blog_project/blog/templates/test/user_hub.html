@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% include 'base.html' %}
+{% block content %}
+<h2>Your Posts</h2>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a class="post-link" href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+            <small>Created on {{ post.created_at }}</small>
+            <a href="{% url 'edit_post' post.id %}">Edit</a> |
+            <a href="{% url 'delete_post' post.id %}">Delete</a>
+        </li>
+    {% empty %}
+        <p>You have no posts.</p>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_post' %}">Create a new post</a>
+{% endblock %}

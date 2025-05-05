@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% include 'base.html' %}
+{% block content %}
+<h2>Edit Post</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+</form>
+<a href="{% url 'user_hub' %}">Cancel</a>
+{% endblock %}

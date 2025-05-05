@@ -1,0 +1,8 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% include 'base.html' %}
+{% block content %}
+<h2>You have been logged out</h2>
+<p>Thank you for visiting our platform.</p>
+<a href="{% url 'home' %}" class="btn-primary">Return to Homepage</a>
+{% endblock %}
