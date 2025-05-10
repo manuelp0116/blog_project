@@ -71,7 +71,7 @@ def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id, author=request.user)
     if request.method == 'POST':
         post.delete()
-        return redirect('user_hub')
+        return redirect('post_list')
     return render(request, 'delete_post.html', {'post': post})  # Updated from 'test/delete_post.html'
 
 def logout_screen(request):
