@@ -1,4 +1,4 @@
-/* Updated CSS Style */
+/* CSS Style */
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -8,28 +8,6 @@ body {
     font-family: 'Press Start 2P', monospace;
     text-align: center;
     padding: 20px;
-}
-
-.navbar {
-    background-color: #1a1a1a;
-    border-bottom: 2px solid #39ff14;
-    font-family: 'Press Start 2P', monospace;
-}
-
-.navbar-brand, .nav-link {
-    color: #39ff14 !important;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-family: 'Press Start 2P', monospace;
-}
-
-.navbar-brand:hover, .nav-link:hover {
-    color: #00ff00 !important;
-    text-decoration: underline;
-}
-
-.container {
-    margin-top: 20px;
 }
 
 .login-box {
@@ -52,26 +30,10 @@ h2 {
     margin-bottom: 30px;
 }
 
-h2, p {
-    font-family: 'Press Start 2P', monospace; /* Ensure the font is applied */
-    color: #ffffff; /* Reinforce the color for <h2> and <p> */
-    text-align: center; /* Center-align text */
-}
-
 .form-label {
     font-size: 10px;
     color: #39ff14;
     text-transform: uppercase;
-}
-
-input.form-control {
-    background-color: #0d0d0d;
-    border: 2px solid #39ff14;
-    color: #39ff14;
-    font-size: 12px;
-    box-shadow: 0 0 10px #39ff14 inset;
-    border-radius: 10px;
-    margin-bottom: 20px;
 }
 
 input.form-control {
@@ -127,19 +89,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Style for hyperlinks in the post page */
-.post-link {
-    color: #00ffff;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.post-link:hover {
-    color: #ff00ff;
-    text-decoration: underline;
-}
-
-/*Purple Logout Button */
+/* Purple Logout Button */
 .neon-purple {
     background-color: #8e2de2;
     color: white;
@@ -175,7 +125,7 @@ a:hover {
     margin-bottom: 20px;
     line-height: 1.6;
 }
-/* Styling for post lists */
+
 /* Post Styling */
 .neon-box {
     background: rgba(0, 0, 0, 0.6);
