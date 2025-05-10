@@ -125,5 +125,5 @@ STATICFILES_DIRS = [BASE_DIR / 'blog/static']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/post_list/'  # Redirect to the posts page after login
+LOGIN_REDIRECT_URL = 'post_list'  # Redirect to the posts page after login
 LOGOUT_REDIRECT_URL = '/logout_screen/'

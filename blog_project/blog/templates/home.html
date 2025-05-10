@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to GlowBoard</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="neon-box">
+        <h1 class="neon-welcome">👋 Welcome to <span class="site-name">GlowBoard</span></h1>
+        <p class="neon-subtext">
+            Explore our latest stories, and create your own,<br>
+            interact with users and more!
+        </p>
+        <p class="neon-subtext">Join us today and be part of our community.</p>
+
+        <div class="button-group">
+            <a href="{% url 'post_list' %}" class="btn-neon-green">📓 Go to My Posts</a>
+            <a href="{% url 'logout' %}" class="btn-neon-purple">🚪 Logout</a>
+        </div>
+    </div>
+
+  <div class="team-credits">
+    <h3>🛠️ Built with determination by team members:</h3>
+    <ul>
+        <li>💻 Manuel Paaredes – Backend & Logic</li>
+        <li>🎨 Brittany Fox – UI Design & Integration</li>
+        <li>🧠 Emily Elliott – Ideas & Content Strategy</li>
+        <li>🛡️ Josiah Davis – Security & Optimization</li>
+    </ul>
+</div>
+
+</body>
+</html>
+
+
+

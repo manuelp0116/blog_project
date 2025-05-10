@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Post</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Delete "{{ post.title }}"?</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Yes, Delete</button>
+        </form>
+        <a href="{% url 'post_list' %}">Cancel</a>
+    </div>
+</body>
+</html>

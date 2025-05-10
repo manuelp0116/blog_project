@@ -10,28 +10,6 @@ body {
     padding: 20px;
 }
 
-.navbar {
-    background-color: #1a1a1a;
-    border-bottom: 2px solid #39ff14;
-    font-family: 'Press Start 2P', monospace; /* Apply the font to the navbar */
-}
-
-.navbar-brand, .nav-link {
-    color: #39ff14 !important;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-family: 'Press Start 2P', monospace; /* Apply the font to the navbar */
-}
-
-.navbar-brand:hover, .nav-link:hover {
-    color: #00ff00 !important;
-    text-decoration: underline;
-}
-
-.container {
-    margin-top: 20px;
-}
-
 .login-box {
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid #39ff14;
@@ -47,17 +25,9 @@ body {
 }
 
 h2 {
-    color: #ffffff !important; /* Ensure the color is white and cannot be overridden */
+    color: #39ff14;
     font-size: 18px;
     margin-bottom: 30px;
-    font-family: 'Press Start 2P', monospace; /* Ensure the font is applied */
-    text-align: center; /* Center-align text */
-}
-
-h2, p {
-    font-family: 'Press Start 2P', monospace; /* Ensure the font is applied */
-    color: #ffffff; /* Reinforce the color for <h2> and <p> */
-    text-align: center; /* Center-align text */
 }
 
 .form-label {
@@ -99,7 +69,6 @@ input.form-control:focus {
     transform: scale(1.05);
 }
 
-
 .alert-danger {
     background-color: rgba(255, 0, 0, 0.1);
     color: #ff4d4d;
@@ -120,19 +89,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Style for hyperlinks in the post page */
-.post-link {
-    color: #00ffff;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.post-link:hover {
-    color: #ff00ff;
-    text-decoration: underline;
-}
-
-/*Purple Logout Button */
+/* Purple Logout Button */
 .neon-purple {
     background-color: #8e2de2;
     color: white;
@@ -150,50 +107,140 @@ a:hover {
     transform: scale(1.05);
 }
 
-/* Styling for post lists */
+/* Home Page Welcome Styling */
+.neon-welcome {
+    color: #39ff14;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.site-name {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.neon-subtext {
+    color: #ccc;
+    font-size: 12px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Post Styling */
+.neon-box {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #39ff14;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 700px;
+    margin: 50px auto;
+    box-shadow: 0 0 20px #39ff14;
+}
+
 .post-list {
     list-style: none;
     padding: 0;
+    margin-top: 30px;
 }
 
 .post-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #39ff14;
+    border-radius: 15px;
+    padding: 20px;
     margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #39ff14;
-    border-radius: 10px;
-    background-color: #1a1a1a;
-    box-shadow: 0 0 10px #39ff14;
+    box-shadow: 0 0 15px #39ff14;
+    text-align: left;
 }
 
 .post-title {
-    font-size: 18px;
-    color: #39ff14;
+    color: #00ff00;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .post-content {
-    font-size: 14px;
-    color: #ffffff;
+    color: #ccc;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    color: #999;
+    font-size: 10px;
+    display: block;
+}
+
+.delete-form {
+    text-align: right;
+    margin-top: 10px;
 }
 
 .no-posts {
-    color: #ff4d4d;
-    font-size: 14px;
+    color: #888;
+    font-size: 12px;
+    margin-top: 20px;
 }
 
-/* Styling for buttons */
-.btn-danger {
-    background-color: #ff4d4d;
+.btn-neon-green {
+    background-color: #00ff00;
+    color: #000;
+    font-weight: bold;
+    font-family: 'Press Start 2P', monospace;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #39ff14;
+    transition: 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.btn-neon-green:hover {
+    background-color: #00cc00;
+    box-shadow: 0 0 25px #00ff00, 0 0 25px #00ff00;
+    transform: scale(1.05);
+}
+
+.btn-neon-purple {
+    background-color: #8e2de2;
     color: white;
     font-weight: bold;
     border: none;
-    box-shadow: 0 0 10px #ff4d4d;
-    border-radius: 8px;
     padding: 10px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #8e2de2, 0 0 20px #a100ff;
     transition: 0.3s ease;
+    font-family: 'Press Start 2P', monospace;
 }
 
-.btn-danger:hover {
-    background-color: #ff0000;
-    box-shadow: 0 0 20px #ff3333, 0 0 30px #ff3333;
+.btn-neon-purple:hover {
+    background-color: #a100ff;
+    box-shadow: 0 0 20px #d633ff, 0 0 30px #ff33ff;
     transform: scale(1.05);
 }
+
+.glowboard-intro {
+    margin-top: 80px; /* more space below the login box */
+    padding-top: 40px;
+    border-top: 2px solid #39ff14;
+}
+
+.glowboard-title {
+    font-size: 26px;
+    color: #00ff00;
+    text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+    margin-bottom: 15px;
+}
+
+.glowboard-subtitle {
+    font-size: 12px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 10px;
+    line-height: 1.6;
+}
+

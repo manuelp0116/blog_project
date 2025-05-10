@@ -7,22 +7,11 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    
-        <h1 class="neon-welcome">👋 Welcome to <span class="site-name">GlowBoard</span></h1>
-        <p class="neon-subtext">
-            Explore our latest stories, and create your own,<br>
-            interact with users and more!
-        </p>
-        <p class="neon-subtext">Join us today and be part of our community.</p>
-
-        <div class="button-group">
-            <a href="{% url 'post_list' %}" class="btn-neon-green">📓 Go to My Posts</a>
-            <a href="{% url 'logout' %}" class="btn-neon-purple">🚪 Logout</a>
-        </div>
     <div class="neon-box">
         <h2 class="page-title">📝 Posts </h2>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <a href="{% url 'main_page' %}" class="btn-neon-purple">🏠 Go to Main Page</a>
             <a href="{% url 'logout' %}" class="btn-neon-purple">🚪 Logout</a>
             <a href="{% url 'create_post' %}" class="btn-neon-green">➕ Create New Post</a>
         </div>
@@ -35,7 +24,12 @@
                         <p class="post-content">{{ post.content }}</p>
                         <span class="post-meta">📅 Posted on {{ post.created_at|date:"M d, Y H:i" }}</span>
 
-                       
+                        <div class="delete-form">
+                            <form method="POST" action="{% url 'delete_post' post.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-neon-purple">🗑 Delete</button>
+                            </form>
+                        </div>
                     </li>
                 {% endfor %}
             </ul>
@@ -43,15 +37,6 @@
             <p class="no-posts">No posts yet. Create one to get started!</p>
         {% endif %}
     </div>
-    <div class="team-credits">
-    <h3>🛠️ Built with determination by team members:</h3>
-    <ul>
-        <li>💻 Manuel Paaredes – Backend & Logic</li>
-        <li>🎨 Brittany Fox – UI Design & Integration</li>
-        <li>🧠 Emily Elliott – Ideas & Content Strategy</li>
-        <li>🛡️ Josiah Davis – Security & Optimization</li>
-    </ul>
-</div>
 </body>
 </html>
 
