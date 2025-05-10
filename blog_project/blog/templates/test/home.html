@@ -1,8 +1,0 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-{% include 'base.html' %}
-{% block content %}
-<h2>Welcome to the Blog Platform</h2>
-<p>You are logged in!</p>
-<a href="{% url 'logout' %}">Logout</a>
-{% endblock %}

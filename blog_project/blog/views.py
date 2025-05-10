@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .models import Post
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 def register(request):
@@ -14,22 +15,23 @@ def register(request):
             user = form.save()
             login(request, user)
             return redirect('home')
+        else:
+            messages.error(request, 'There was an error with your registration. Please check the form and try again.')
     else:
         form = UserCreationForm()
-    return render(request, 'test/registration.html', {'form': form})
+    return render(request, 'signup.html', {'form': form})  # Updated from 'test/registration.html'
 
 def home(request):
-    return render(request, 'homepage.html')
+    return render(request, 'home.html')
 
+@login_required
 def post_list(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
-    posts = Post.objects.all().order_by('-created_at') #getch all post from database
-    return render(request, 'posts.html', {'posts': posts})
+    posts = Post.objects.filter(author=request.user).order_by('-created_at')
+    return render(request, 'user_posts.html', {'posts': posts})
 
 def main_page(request):
     posts = Post.objects.all().order_by('-created_at')
-    return render(request, 'test/main_page.html', {'posts': posts})
+    return render(request, 'posts.html', {'posts': posts})
 
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -45,12 +47,12 @@ def create_post(request):
             return redirect('main_page')
     else:
         form = PostForm()
-    return render(request, 'test/create_post.html', {'form': form})
+    return render(request, 'create_post.html', {'form': form})  # Updated from 'test/create_post.html'
 
 @login_required
 def user_hub(request):
     posts = Post.objects.filter(author=request.user).order_by('-created_at')
-    return render(request, 'test/user_hub.html', {'posts': posts})
+    return render(request, 'user_hub.html', {'posts': posts})  # Updated from 'test/user_hub.html'
 
 @login_required
 def edit_post(request, post_id):
@@ -62,7 +64,7 @@ def edit_post(request, post_id):
             return redirect('user_hub')
     else:
         form = PostForm(instance=post)
-    return render(request, 'test/edit_post.html', {'form': form})
+    return render(request, 'edit_post.html', {'form': form})  # Updated from 'test/edit_post.html'
 
 @login_required
 def delete_post(request, post_id):
@@ -70,8 +72,8 @@ def delete_post(request, post_id):
     if request.method == 'POST':
         post.delete()
         return redirect('user_hub')
-    return render(request, 'test/delete_post.html', {'post': post})
+    return render(request, 'delete_post.html', {'post': post})  # Updated from 'test/delete_post.html'
 
 def logout_screen(request):
     logout(request)
-    return render(request, 'test/logout.html')
+    return render(request, 'login.html')  # Updated from 'test/logout.html'
