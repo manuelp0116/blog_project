@@ -20,10 +20,25 @@
         <h2 class="page-title">📝 Posts </h2>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <a href="{% url 'logout' %}" class="btn-neon-purple">🚪 Logout</a>
+            <button onclick="logoutUser()" class="btn-neon-purple">🚪 Logout</button>
             <a href="{% url 'post_list' %}" class="btn-neon-purple"> Go to My post</a>
             <a href="{% url 'create_post' %}" class="btn-neon-green">➕ Create New Post</a>
         </div>
+
+        <script>
+            function logoutUser() {
+                fetch("{% url 'logout' %}", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}',
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.href = "{% url 'login' %}";
+                    }
+                });
+            }
+        </script>
 
         {% if posts %}
             <ul class="post-list">
