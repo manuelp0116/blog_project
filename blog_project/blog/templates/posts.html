@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.0">
 </head>
+
 <body>
     <div class="neon-box">
         <h1 class="neon-welcome">👋 Welcome to <span class="site-name">GlowBoard</span></h1>
@@ -20,6 +21,7 @@
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
             <a href="{% url 'logout' %}" class="btn-neon-purple">🚪 Logout</a>
+            <a href="{% url 'post_list' %}" class="btn-neon-purple"> Go to My post</a>
             <a href="{% url 'create_post' %}" class="btn-neon-green">➕ Create New Post</a>
         </div>
 
