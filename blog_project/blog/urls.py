@@ -15,6 +15,5 @@ urlpatterns = [
     path('delete_post/<int:post_id>/', views.delete_post, name='delete_post'),
     path('logout_screen/', views.logout_screen, name='logout_screen'),
     path('signup/', views.register, name='signup'),
-    path('home/', views.home, name='home')
     path('', auth_views.LoginView.as_view(template_name='login.html'), name='login')
 ]
