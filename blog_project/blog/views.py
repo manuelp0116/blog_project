@@ -8,6 +8,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 # Create your views here.
+
+
+## Registration form using Django build in form for this
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
